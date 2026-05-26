@@ -120,7 +120,7 @@ function initLessonCompletion(plan) {
 
 // Atualizar a Barra de Progresso Dourada
 function updateProgressBar(plan, completedCount) {
-  const totalLessons = plan === 'basico' ? 5 : 11; // 5 módulos básicos vs 11 premium
+  const totalLessons = 1; // PDF principal único em cada plano
   const percentage = Math.min(Math.round((completedCount / totalLessons) * 100), 100);
   
   const fill = document.querySelector('.progress-bar-fill');
