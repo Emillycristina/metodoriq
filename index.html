@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal Exclusivo - Lei da Suposição</title>
+  <meta name="description" content="Acesse as áreas de membros exclusivas dos e-books de Lei da Suposição. Plano Essencial e Plano Completo com Método R.I.Q. e bônus.">
+  <link rel="stylesheet" href="assets/css/global.css">
+  <link rel="stylesheet" href="assets/css/portal.css">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%20%2290%22>✨</text></svg>">
+</head>
+<body>
+
+  <!-- OVERLAY DE CARREGAMENTO / TRANSIÇÃO -->
+  <div class="portal-loading-overlay" id="portal-loading-overlay">
+    <div class="portal-loading-spinner"></div>
+    <h3 id="loading-title">Abrindo Portal...</h3>
+    <p id="loading-msg">Por favor, aguarde um momento.</p>
+  </div>
+
+  <div class="portal-container">
+    <div class="portal-background-glow"></div>
+    
+    <!-- Portal Header -->
+    <header class="portal-header fade-in">
+      <span class="subtitle">Portal Exclusivo de Membros</span>
+      <h1 class="text-gold-gradient">Lei da Suposição</h1>
+      <p class="description">Insira o seu código de acesso abaixo para entrar na sua área de membros exclusiva com o Método R.I.Q.</p>
+    </header>
+
+    <!-- GATE DE LOGIN (exibido por padrão; oculto ao redirecionar) -->
+    <div id="portal-login-gate" class="portal-login-card shimmer-card">
+      <svg width="42" height="42" fill="none" stroke="url(#gate-gold-grad)" stroke-width="1.5" viewBox="0 0 24 24" style="margin: 0 auto 20px; display: block;">
+        <defs>
+          <linearGradient id="gate-gold-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#F6E6C2" />
+            <stop offset="100%" stop-color="#D4AF37" />
+          </linearGradient>
+        </defs>
+        <rect x="3" y="11" width="18" height="11" rx="2" ry="2" stroke-width="2"/>
+        <path d="M7 11V7a5 5 0 0 1 10 0v4" stroke-width="2"/>
+      </svg>
+
+      <h2>Acesso Exclusivo</h2>
+      <p>Digite o código de acesso que chegou no seu e-mail após a compra.</p>
+
+      <form id="portal-access-form" autocomplete="off">
+        <div class="portal-input-group">
+          <label for="portal-code-input">Código de Acesso</label>
+          <div class="portal-input-wrapper">
+            <input
+              type="text"
+              id="portal-code-input"
+              class="portal-input"
+              placeholder="Ex: LEI-ESSENCIAL"
+              maxlength="40"
+              autocomplete="off"
+              spellcheck="false"
+            >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/>
+            </svg>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-gold portal-btn-submit" id="portal-submit-btn">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+          <span>Acessar Minha Área</span>
+        </button>
+
+        <div id="portal-access-alert" class="portal-alert" role="alert"></div>
+      </form>
+
+      <p style="margin-top: 30px; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0;">
+        Não encontrou o código? Verifique o e-mail de confirmação da sua compra.
+      </p>
+    </div>
+
+    <!-- Footer -->
+    <footer class="portal-footer fade-in">
+      <p>&copy; 2026 Lei da Suposição. Todos os direitos reservados. Design e Tecnologia Ultra-Premium.</p>
+    </footer>
+  </div>
+
+  <script src="assets/js/portal.js"></script>
+</body>
+</html>

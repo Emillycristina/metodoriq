@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Outfit:wght@200;300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Cores Principais */
+  --bg-primary: #070709;
+  --bg-secondary: #111115;
+  --bg-tertiary: #181820;
+  
+  /* Cores Douradas */
+  --gold-primary: #D4AF37;
+  --gold-light: #F6E6C2;
+  --gold-dark: #AA7C11;
+  --gold-metallic: linear-gradient(135deg, #F6E6C2 0%, #D4AF37 40%, #AA7C11 75%, #8B6508 100%);
+  --gold-text-gradient: linear-gradient(135deg, #FFFFFF 0%, #F6E6C2 50%, #D4AF37 100%);
+  --dark-gradient: linear-gradient(180deg, #111115 0%, #070709 100%);
+  
+  /* Estados de Cores */
+  --text-primary: #F5F5F7;
+  --text-secondary: #9E9EAF;
+  --text-muted: #555562;
+  
+  /* Efeitos e Bordas */
+  --border-gold: rgba(212, 175, 55, 0.15);
+  --border-gold-hover: rgba(212, 175, 55, 0.4);
+  --glass-bg: rgba(17, 17, 21, 0.7);
+  --glass-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.6);
+  --glow-gold: 0 0 20px rgba(212, 175, 55, 0.2);
+  --glow-gold-intense: 0 0 35px rgba(212, 175, 55, 0.4);
+  
+  /* Transições e Curvas */
+  --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Reset e Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+body {
+  font-family: 'Outfit', 'Inter', sans-serif;
+  overflow-x: hidden;
+  background-color: var(--bg-primary);
+  min-height: 100vh;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbar Customizada Premium */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-gold);
+  border-radius: 4px;
+  border: 2px solid var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-primary);
+}
+
+/* Estilos de Tipografia */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Cinzel', serif;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  line-height: 1.2;
+}
+
+.text-gold-gradient {
+  background: var(--gold-metallic);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  display: inline-block;
+}
+
+/* Elementos Utilitários de Design */
+.btn-gold {
+  position: relative;
+  background: var(--gold-metallic);
+  color: #070709;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: var(--transition-smooth);
+  box-shadow: var(--glow-gold);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn-gold::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.btn-gold:hover::before {
+  left: 100%;
+}
+
+.btn-gold:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--glow-gold-intense);
+  color: #000;
+}
+
+.btn-gold:active {
+  transform: translateY(-1px);
+}
+
+/* Efeito Shimmer para Bordas */
+@keyframes borderShimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.shimmer-card {
+  position: relative;
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-gold);
+  border-radius: 8px;
+  transition: var(--transition-smooth);
+  box-shadow: var(--glass-shadow);
+}
+
+.shimmer-card:hover {
+  border-color: var(--gold-primary);
+  box-shadow: var(--glow-gold), var(--glass-shadow);
+  transform: translateY(-5px);
+}
+
+/* Transições de Fade In */
+.fade-in {
+  animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plano Essencial - Área de Membros</title>
+  <link rel="stylesheet" href="assets/css/global.css">
+  <link rel="stylesheet" href="assets/css/members.css">
+  <link rel="icon" type="image/png" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%20%2290%22>✨</text></svg>">
+  <!-- ★ BARREIRA DE SEGURANÇA - deve rodar antes de renderizar qualquer conteúdo ★ -->
+  <script>
+    (function() {
+      var plan = localStorage.getItem('lei_suposicao_plan');
+      // Sem nenhum acesso -> redirecionar para o portal
+      if (!plan || (plan !== 'basico' && plan !== 'premium')) {
+        window.location.replace('index.html');
+      }
+    })();
+  </script>
+</head>
+<body data-plan="basico">
+
+  <div class="members-container">
+    
+    <!-- 1. BARRA LATERAL (SIDEBAR) -->
+    <aside class="members-sidebar">
+      <div class="sidebar-logo">
+        <svg width="24" height="24" fill="none" stroke="url(#gold-grad)" stroke-width="2" viewBox="0 0 24 24">
+          <defs>
+            <linearGradient id="gold-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#F6E6C2" />
+              <stop offset="100%" stop-color="#D4AF37" />
+            </linearGradient>
+          </defs>
+          <path d="M12 2L2 22h20L12 2zM12 6l6.5 13H5.5L12 6z"/>
+        </svg>
+        <span>Área Essencial</span>
+      </div>
+
+      <!-- Perfil do Estudante -->
+      <div class="sidebar-profile">
+        <div class="profile-badge-wrap">
+          <div class="profile-avatar">E</div>
+          <div class="profile-info">
+            <h4>Estudante Lei</h4>
+            <span class="profile-badge">Essencial</span>
+          </div>
+        </div>
+        
+        <!-- Progresso das Aulas -->
+        <div class="sidebar-progress">
+          <div class="progress-labels">
+            <span class="progress-percent">0%</span>
+            <span class="progress-fraction">0/5 Concluídos</span>
+          </div>
+          <div class="progress-bar-container">
+            <div class="progress-bar-fill"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Links dos Módulos -->
+      <nav class="sidebar-nav">
+        <h3 class="nav-section-title">Método R.I.Q.</h3>
+        <ul class="nav-menu">
+          <li class="nav-item active" data-target="mod-1">
+            <a href="#">
+              <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5A2.5 2.5 0 0 0 6.5 22H20M4 19.5V3.5A2.5 2.5 0 0 1 6.5 1H20v16H6.5"/></svg>
+              <span>Mód. 1: Introdução & Eu Sou</span>
+            </a>
+          </li>
+          <li class="nav-item" data-target="mod-2">
+            <a href="#">
+              <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5A2.5 2.5 0 0 0 6.5 22H20M4 19.5V3.5A2.5 2.5 0 0 1 6.5 1H20v16H6.5"/></svg>
+              <span>Mód. 2: Desejo Cumprido</span>
+            </a>
+          </li>
+          <li class="nav-item" data-target="mod-3">
+            <a href="#">
+              <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5A2.5 2.5 0 0 0 6.5 22H20M4 19.5V3.5A2.5 2.5 0 0 1 6.5 1H20v16H6.5"/></svg>
+              <span>Mód. 3: Dieta Mental</span>
+            </a>
+          </li>
+          <li class="nav-item" data-target="mod-4">
+            <a href="#">
+              <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5A2.5 2.5 0 0 0 6.5 22H20M4 19.5V3.5A2.5 2.5 0 0 1 6.5 1H20v16H6.5"/></svg>
+              <span>Mód. 4: Visualização SATS</span>
+            </a>
+          </li>
+          <li class="nav-item" data-target="mod-5">
+            <a href="#">
+              <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5A2.5 2.5 0 0 0 6.5 22H20M4 19.5V3.5A2.5 2.5 0 0 1 6.5 1H20v16H6.5"/></svg>
+              <span>Mód. 5: Cocriação Prática</span>
+            </a>
+          </li>
+          
+          <!-- Módulos Bloqueados para Upgrade -->
+          <li class="nav-item locked">
+            <a href="#" onclick="alert('🔒 Este módulo pertence ao Plano Completo (Premium). Faça o upgrade para liberar o acesso aos 11 Módulos!')">
+              <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5V3.5A2.5 2.5 0 0 1 6.5 1H20v16H6.5"/></svg>
+              <span>Mód. 6-11: Avançados R.I.Q.</span>
+              <svg viewBox="0 0 24 24" class="lock-icon" width="14" height="14"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </a>
+          </li>
+        </ul>
+
+        <h3 class="nav-section-title">Bônus Exclusivos</h3>
+        <ul class="nav-menu">
+          <li class="nav-item locked">
+            <a href="#" onclick="alert('🔒 Todos os bônus aceleradores pertencem exclusivamente ao Plano Completo. Faça o upgrade e acesse já!')">
+              <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+              <span>Todos os 5 Bônus VIP</span>
+              <svg viewBox="0 0 24 24" class="lock-icon" width="14" height="14"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </a>
+          </li>
+        </ul>
+
+        <ul class="nav-menu">
+          <li class="nav-item portal-link">
+            <a href="#" onclick="sairDaArea(event)">
+              <svg viewBox="0 0 24 24"><path d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+              <span>Sair / Trocar Acesso</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- 2. CORPO PRINCIPAL DE CONTEÚDO -->
+    <main class="members-main">
+      
+      <!-- Topbar -->
+      <header class="members-topbar">
+        <div class="topbar-left">
+          <button class="menu-toggle-btn">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+          <div class="topbar-title-path">
+            <span>Método R.I.Q.</span> &raquo; <strong>Mód. 1: Introdução & Eu Sou</strong>
+          </div>
+        </div>
+        <div class="topbar-actions">
+          <a href="#" onclick="sairDaArea(event)" class="btn-back-portal">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+            <span>Sair da Área</span>
+          </a>
+        </div>
+      </header>
+
+      <!-- Conteúdo da Área de Membros -->
+      <div class="members-content-body">
+        
+        <!-- SEÇÃO: MÓDULO 1 -->
+        <section id="mod-1" class="dynamic-section fade-in">
+          <div class="module-header-card shimmer-card">
+            <div class="module-header-info">
+              <span class="module-meta">Módulo 1</span>
+              <h1 class="module-title">Introdução à Lei da Suposição & O Poder do "Eu Sou"</h1>
+              <p class="module-desc">Compreenda a fundação do Método R.I.Q. e como a sua autoconcepção determina cada aspecto físico do seu universo tridimensional.</p>
+            </div>
+          </div>
+
+          <div class="lesson-view-grid">
+            <div class="lesson-mockup-wrapper">
+              <div class="ebook-display-card shimmer-card">
+                <img src="assets/images/metodo_riq.png" alt="Método R.I.Q. Ebook" class="ebook-3d-image">
+                <div class="ebook-file-meta">
+                  <span>Formato: <strong>PDF</strong></span>
+                  <span>Tamanho: <strong>14.2 MB</strong></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="lesson-content-panel">
+              <div class="card-content-desc shimmer-card">
+                <div class="lesson-title-section">
+                  <div class="lesson-title-area">
+                    <span class="lesson-tag-indicator">Leitura Disponível</span>
+                    <h2>Aula 1: A Consciência é a Única Realidade</h2>
+                  </div>
+                  <button class="lesson-completed-badge-btn" data-lesson-id="b-l1">
+                    <svg class="circle-icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>
+                    <svg class="check-icon" width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M20 6L9 17L4 12"/></svg>
+                    <span>Marcar como Concluído</span>
+                  </button>
+                </div>
+
+                <div class="lesson-text-content">
+                  <p>Bem-vindo à sua primeira grande etapa na manifestação consciente. A Lei da Suposição, postulada pelo célebre místico Neville Goddard, fundamenta-se em um pilar absoluto: <strong>a sua consciência é a única causa e a única realidade do seu mundo.</strong></p>
+                  <p>O que você vê projetado "lá fora" como fatos e circunstâncias nada mais é do que a cristalização física de suas suposições internas. Portanto, para mudar qualquer condição da sua vida, você não deve lutar contra o mundo tridimensional, mas sim alterar as suas suposições profundas.</p>
+                  <p><strong>Neste primeiro módulo do Método R.I.Q., você aprenderá:</strong></p>
+                  <ul>
+                    <li>Como o conceito de <strong>"Eu Sou"</strong> abre os portais da mente subconsciente.</li>
+                    <li>Como desvincular sua atenção das aparências físicas limitantes dos sentidos.</li>
+                    <li>O alinhamento espiritual básico para magnetizar realidades desejadas sem esforço.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Download do Ebook -->
+              <div class="download-material-card">
+                <div class="download-info">
+                  <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 15V3m0 12l-4-4m4 4l4-4M4 17v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></svg>
+                  <div>
+                    <h3>E-book Oficial Método R.I.Q. (Essencial)</h3>
+                    <p>Faça o download do seu material base e acompanhe os módulos práticos.</p>
+                  </div>
+                </div>
+                <button onclick="simulateDownload('Método R.I.Q. - Essencial.pdf')" class="btn-gold btn-download-ebook">Baixar E-book</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SEÇÃO: MÓDULO 2 -->
+        <section id="mod-2" class="dynamic-section" style="display: none;">
+          <div class="module-header-card shimmer-card">
+            <div class="module-header-info">
+              <span class="module-meta">Módulo 2</span>
+              <h1 class="module-title">O Estado Mental de Desejo Cumprido</h1>
+              <p class="module-desc">Aprenda a arte de sentir-se já na posse dos seus objetivos mais ambiciosos e veja a resistência física desaparecer.</p>
+            </div>
+          </div>
+
+          <div class="lesson-view-grid">
+            <div class="lesson-mockup-wrapper">
+              <div class="ebook-display-card shimmer-card">
+                <img src="assets/images/metodo_riq.png" alt="Método R.I.Q. Ebook" class="ebook-3d-image">
+                <div class="ebook-file-meta">
+                  <span>Formato: <strong>PDF</strong></span>
+                  <span>Tamanho: <strong>14.2 MB</strong></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="lesson-content-panel">
+              <div class="card-content-desc shimmer-card">
+                <div class="lesson-title-section">
+                  <div class="lesson-title-area">
+                    <span class="lesson-tag-indicator">Leitura Disponível</span>
+                    <h2>Aula 2: Vivendo do Fim (Sentimento é o Segredo)</h2>
+                  </div>
+                  <button class="lesson-completed-badge-btn" data-lesson-id="b-l2">
+                    <svg class="circle-icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>
+                    <svg class="check-icon" width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M20 6L9 17L4 12"/></svg>
+                    <span>Marcar como Concluído</span>
+                  </button>
+                </div>
+
+                <div class="lesson-text-content">
+                  <p>Muitos fracassam em suas manifestações porque tentam manifestar a partir do sentimento de "falta", visualizando o seu desejo como algo distante no futuro. O grande segredo da Lei da Suposição é a capacidade de <strong>viver a partir do fim</strong>.</p>
+                  <p>Isso significa assumir agora a atmosfera emocional, a tranquilidade e a autoconcepção de quem já conquistou o que queria. O cérebro e o subconsciente não diferenciam uma suposição profundamente vivida em imaginação da realidade empírica externa.</p>
+                  <p><strong>Pontos-chave desta lição:</strong></p>
+                  <ul>
+                    <li>Como ignorar as evidências dos sentidos e persistir na suposição invisível.</li>
+                    <li>O papel da naturalidade: um desejo realizado gera paz, não ansiedade.</li>
+                    <li>Exercício de ancoragem emocional para fixar a nova identidade.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SEÇÃO: MÓDULO 3 -->
+        <section id="mod-3" class="dynamic-section" style="display: none;">
+          <div class="module-header-card shimmer-card">
+            <div class="module-header-info">
+              <span class="module-meta">Módulo 3</span>
+              <h1 class="module-title">Dieta Mental: Controlando os Pensamentos Dominantes</h1>
+              <p class="module-desc">Blinde a sua mente e aprenda a substituir diálogos internos autossabotadores por conversações de poder e triunfo.</p>
+            </div>
+          </div>
+
+          <div class="lesson-view-grid">
+            <div class="lesson-mockup-wrapper">
+              <div class="ebook-display-card shimmer-card">
+                <img src="assets/images/metodo_riq.png" alt="Método R.I.Q. Ebook" class="ebook-3d-image">
+                <div class="ebook-file-meta">
+                  <span>Formato: <strong>PDF</strong></span>
+                  <span>Tamanho: <strong>14.2 MB</strong></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="lesson-content-panel">
+              <div class="card-content-desc shimmer-card">
+                <div class="lesson-title-section">
+                  <div class="lesson-title-area">
+                    <span class="lesson-tag-indicator">Leitura Disponível</span>
+                    <h2>Aula 3: O Diálogo Interno Criador</h2>
+                  </div>
+                  <button class="lesson-completed-badge-btn" data-lesson-id="b-l3">
+                    <svg class="circle-icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>
+                    <svg class="check-icon" width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M20 6L9 17L4 12"/></svg>
+                    <span>Marcar como Concluído</span>
+                  </button>
+                </div>
+
+                <div class="lesson-text-content">
+                  <p>A sua dieta mental consiste em tudo o que você aceita como verdade ao longo do dia, especialmente as suas conversas internas silenciosas. Você não atrai o que quer, você atrai o que <strong>conscientemente consome e assume como real</strong> nas suas conversas mentais secretas.</p>
+                  <p>Se você visualiza riqueza por 10 minutos à noite, mas passa 16 horas do dia reclamando de contas e contas mentais de escassez, a sua dieta mental dominante é de pobreza. Vamos aprender a reverter isso de forma radical.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SEÇÃO: MÓDULO 4 -->
+        <section id="mod-4" class="dynamic-section" style="display: none;">
+          <div class="module-header-card shimmer-card">
+            <div class="module-header-info">
+              <span class="module-meta">Módulo 4</span>
+              <h1 class="module-title">A Técnica da Visualização Noturna (SATS)</h1>
+              <p class="module-desc">Descubra o estado hipnótico que antecede o sono e imprima seus maiores desejos no subconsciente com clareza absoluta.</p>
+            </div>
+          </div>
+
+          <div class="lesson-view-grid">
+            <div class="lesson-mockup-wrapper">
+              <div class="ebook-display-card shimmer-card">
+                <img src="assets/images/metodo_riq.png" alt="Método R.I.Q. Ebook" class="ebook-3d-image">
+                <div class="ebook-file-meta">
+                  <span>Formato: <strong>PDF</strong></span>
+                  <span>Tamanho: <strong>14.2 MB</strong></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="lesson-content-panel">
+              <div class="card-content-desc shimmer-card">
+                <div class="lesson-title-section">
+                  <div class="lesson-title-area">
+                    <span class="lesson-tag-indicator">Leitura Disponível</span>
+                    <h2>Aula 4: SATS (State Akin To Sleep)</h2>
+                  </div>
+                  <button class="lesson-completed-badge-btn" data-lesson-id="b-l4">
+                    <svg class="circle-icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>
+                    <svg class="check-icon" width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M20 6L9 17L4 12"/></svg>
+                    <span>Marcar como Concluído</span>
+                  </button>
+                </div>
+
+                <div class="lesson-text-content">
+                  <p>O SATS (Estado Semelhante ao Sono) é a janela de manifestação mais poderosa que existe. Ocorre quando você relaxa fisicamente até um ponto de quase sonolência, mantendo a mente focada e no controle.</p>
+                  <p>Nesse estado, a barreira do fator crítico consciente diminui, abrindo uma linha direta de gravação de imagens na mente subconsciente. Você aprenderá como construir uma cena curta e memorável que implique que o seu desejo já está plenamente manifestado.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SEÇÃO: MÓDULO 5 -->
+        <section id="mod-5" class="dynamic-section" style="display: none;">
+          <div class="module-header-card shimmer-card">
+            <div class="module-header-info">
+              <span class="module-meta">Módulo 5</span>
+              <h1 class="module-title">Como Manifestar E-books e Conhecimento Prático</h1>
+              <p class="module-desc">Colocando a teoria à prova. Como materializar seus estudos intelectuais em novas realidades físicas palpáveis.</p>
+            </div>
+          </div>
+
+          <div class="lesson-view-grid">
+            <div class="lesson-mockup-wrapper">
+              <div class="ebook-display-card shimmer-card">
+                <img src="assets/images/metodo_riq.png" alt="Método R.I.Q. Ebook" class="ebook-3d-image">
+                <div class="ebook-file-meta">
+                  <span>Formato: <strong>PDF</strong></span>
+                  <span>Tamanho: <strong>14.2 MB</strong></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="lesson-content-panel">
+              <div class="card-content-desc shimmer-card">
+                <div class="lesson-title-section">
+                  <div class="lesson-title-area">
+                    <span class="lesson-tag-indicator">Leitura Disponível</span>
+                    <h2>Aula 5: Materialização Prática do Conhecimento</h2>
+                  </div>
+                  <button class="lesson-completed-badge-btn" data-lesson-id="b-l5">
+                    <svg class="circle-icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>
+                    <svg class="check-icon" width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M20 6L9 17L4 12"/></svg>
+                    <span>Marcar como Concluído</span>
+                  </button>
+                </div>
+
+                <div class="lesson-text-content">
+                  <p>Nesta última aula do Plano Essencial, fechamos o ciclo de aprendizado básico do Método R.I.Q. Você já possui as chaves para criar realidades. A partir de agora, o seu maior trabalho é persistir na sua suposição diariamente até que ela endureça em fatos.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- BANNER DE UPGRADE DE PLANO -->
+        <section class="upgrade-advertisement-banner">
+          <div class="upgrade-banner-info">
+            <h3 class="text-gold-gradient">Quer acelerar os seus resultados em 10x?</h3>
+            <p>Faça o upgrade agora para o <strong>Plano Completo</strong> e libere imediatamente o acesso aos 11 módulos completos do Método R.I.Q., além de ganhar os 5 Bônus Aceleradores VIP (Guia de Início Rápido, Rotina de Reprogramação em PDF, Checklist e muito mais!).</p>
+          </div>
+          <a href="index.html" class="btn-gold btn-banner-upgrade">Ver Plano Premium</a>
+        </section>
+        
+      </div>
+    </main>
+  </div>
+
+  <script src="assets/js/app.js"></script>
+  <script>
+    function sairDaArea(e) {
+      if (e) e.preventDefault();
+      localStorage.removeItem('lei_suposicao_plan');
+      window.location.href = 'index.html';
+    }
+  </script>
+</body>
+</html>

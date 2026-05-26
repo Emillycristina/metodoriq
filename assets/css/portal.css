@@ -1,0 +1,420 @@
+/* Estilos do Portal de Entrada */
+.portal-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(circle at center, #15151b 0%, var(--bg-primary) 100%);
+}
+
+/* Partículas Flutuantes de Dourado */
+.portal-background-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.portal-header {
+  text-align: center;
+  margin-bottom: 60px;
+  z-index: 10;
+  max-width: 800px;
+}
+
+.portal-header .subtitle {
+  font-family: 'Outfit', sans-serif;
+  color: var(--gold-primary);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+}
+
+.portal-header h1 {
+  font-size: 2.8rem;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.portal-header .description {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+  font-weight: 300;
+}
+
+/* Container dos Cards de Planos */
+.portal-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  max-width: 1000px;
+  width: 100%;
+  z-index: 10;
+}
+
+@media (max-width: 768px) {
+  .portal-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .portal-header h1 {
+    font-size: 2rem;
+  }
+}
+
+/* Estilização Premium dos Cards */
+.plan-card {
+  padding: 50px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 550px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Badge VIP para o Plano Completo */
+.vip-badge {
+  position: absolute;
+  top: 25px;
+  right: -35px;
+  background: var(--gold-metallic);
+  color: #070709;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  font-size: 0.75rem;
+  padding: 6px 40px;
+  transform: rotate(45deg);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.plan-card.premium-tier {
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  background: linear-gradient(145deg, rgba(20, 20, 25, 0.85) 0%, rgba(12, 12, 14, 0.95) 100%);
+  box-shadow: var(--glow-gold), var(--glass-shadow);
+}
+
+.plan-card.premium-tier::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gold-metallic);
+}
+
+.plan-info {
+  margin-bottom: 30px;
+}
+
+.plan-tag {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.plan-card.premium-tier .plan-tag {
+  color: var(--gold-primary);
+}
+
+.plan-name {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: var(--text-primary);
+}
+
+.plan-card.premium-tier .plan-name {
+  background: var(--gold-metallic);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.plan-description {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  font-weight: 300;
+  margin-bottom: 30px;
+  min-height: 48px;
+}
+
+/* Lista de Recursos */
+.plan-features-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+.plan-features-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+
+.plan-features-list li svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: var(--gold-primary);
+  stroke-width: 2.5;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+.plan-features-list li.locked-feature {
+  color: var(--text-muted);
+}
+
+.plan-features-list li.locked-feature svg {
+  stroke: var(--text-muted);
+}
+
+/* Botões Customizados por Card */
+.btn-outline-gold {
+  background: transparent;
+  color: var(--gold-primary);
+  border: 1px solid var(--border-gold);
+  border-radius: 4px;
+  padding: 14px 28px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.btn-outline-gold:hover {
+  background: rgba(212, 175, 55, 0.05);
+  border-color: var(--gold-primary);
+  color: var(--gold-light);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.05);
+}
+
+.btn-premium-action {
+  width: 100%;
+}
+
+/* Rodapé Elegante */
+.portal-footer {
+  margin-top: 80px;
+  z-index: 10;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  text-align: center;
+  font-weight: 300;
+}
+
+/* ==================== GATE DE ACESSO (LOGIN) ==================== */
+.portal-login-card {
+  max-width: 480px;
+  width: 100%;
+  padding: 50px 40px;
+  z-index: 10;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.portal-login-card h2 {
+  font-size: 1.8rem;
+  margin-bottom: 12px;
+  background: var(--gold-metallic);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.portal-login-card p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin-bottom: 35px;
+  font-weight: 300;
+}
+
+.portal-input-group {
+  margin-bottom: 25px;
+  text-align: left;
+}
+
+.portal-input-group label {
+  display: block;
+  font-family: 'Outfit', sans-serif;
+  color: var(--gold-light);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 8px;
+}
+
+.portal-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.portal-input-wrapper svg {
+  position: absolute;
+  left: 15px;
+  width: 18px;
+  height: 18px;
+  stroke: var(--text-muted);
+  transition: var(--transition-fast);
+  pointer-events: none;
+}
+
+.portal-input {
+  width: 100%;
+  padding: 14px 15px 14px 45px;
+  background: rgba(7, 7, 9, 0.6);
+  border: 1px solid var(--border-gold);
+  border-radius: 4px;
+  color: var(--text-primary);
+  font-family: 'Outfit', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  transition: var(--transition-fast);
+}
+
+.portal-input:focus {
+  border-color: var(--gold-primary);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.15);
+  background: rgba(7, 7, 9, 0.85);
+}
+
+.portal-input:focus + svg {
+  stroke: var(--gold-primary);
+}
+
+.portal-btn-submit {
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* Alertas de Feedback */
+.portal-alert {
+  padding: 12px 15px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  margin-top: 20px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: 'Outfit', sans-serif;
+  animation: fadeIn 0.4s ease forwards;
+}
+
+.portal-alert.error {
+  display: flex;
+  background: rgba(220, 53, 69, 0.1);
+  border: 1px solid rgba(220, 53, 69, 0.3);
+  color: #ff6b76;
+}
+
+.portal-alert.success {
+  display: flex;
+  background: rgba(40, 167, 69, 0.1);
+  border: 1px solid rgba(40, 167, 69, 0.3);
+  color: #5deb82;
+}
+
+/* Animação de Erro (Shake) */
+.shake {
+  animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+  border-color: #ff6b76 !important;
+}
+
+@keyframes shake {
+  10%, 90% { transform: translate3d(-1px, 0, 0); }
+  20%, 80% { transform: translate3d(2px, 0, 0); }
+  30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+  40%, 60% { transform: translate3d(4px, 0, 0); }
+}
+
+/* ==================== LOADING OVERLAY ==================== */
+.portal-loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(7, 7, 9, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.portal-loading-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.portal-loading-spinner {
+  width: 60px;
+  height: 60px;
+  border: 3px solid rgba(212, 175, 55, 0.1);
+  border-top-color: var(--gold-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 25px;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.1);
+}
+
+.portal-loading-overlay h3 {
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+  color: var(--gold-light);
+  font-family: 'Cinzel', serif;
+}
+
+.portal-loading-overlay p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 300;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
